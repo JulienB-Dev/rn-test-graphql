@@ -1,0 +1,18 @@
+type Image {
+  type: String!
+  base64: String!
+}
+
+type Message {
+  id: Int!
+  image: Image!
+  text: String
+}
+
+extend type Query {
+  messages: [Message]
+}
+
+extend type Mutation {
+  message(text: String, base64: String!, type: String!): [Message]
+}
